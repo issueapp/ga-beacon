@@ -41,7 +41,7 @@ Cuba.define do
 
     if @cid.nil? || @cid.empty?
       @cid = generateUUID
-      res.set_cookie(Cid, @cid)
+      res.set_cookie(Cid, "#{@cid}; path=/")
     end
 
     @cid
