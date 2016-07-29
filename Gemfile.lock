@@ -16,6 +16,7 @@ GEM
     http-form_data (1.0.1)
     http_parser.rb (0.6.0)
     mote (1.1.4)
+    puma (3.6.0)
     rack (2.0.1)
     unf (0.1.4)
       unf_ext
@@ -28,6 +29,7 @@ DEPENDENCIES
   cuba
   http
   mote
+  puma
 
 BUNDLED WITH
    1.11.2
