@@ -36,19 +36,19 @@ Cuba.define do
     SecureRandom.uuid
   end
 
-  def get_or_set_cid
+  def get_or_set_cid account
     @cid = req.cookies[Cid]
 
     if @cid.nil? || @cid.empty?
       @cid = generateUUID
-      res.set_cookie(Cid, value: @cid, path: '/')
+      res.set_cookie(Cid, value: @cid, path: "/#{account}")
     end
 
     @cid
   end
 
   on ':account/(.+)' do |account, page|
-    cid = get_or_set_cid
+    cid = get_or_set_cid(account)
     logHit(req.user_agent, req.ip, cid, account, page)
 
     res['Cache-Control'] = 'no-cache'
