@@ -21,6 +21,7 @@ Cuba.define do
   end
 
   def logHit ua, ip, cid, account, page
+    # https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters#general
     payload = {
       'v' => '1',
       't' => 'pageview',
