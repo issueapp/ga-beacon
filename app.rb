@@ -22,14 +22,15 @@ Cuba.define do
 
   def logHit ua, ip, cid, account, page
     payload = {
-      v: '1',
-      t: 'pageview',
-      tid: account,
-      cid: cid,
-      dp: page,
-      uip: ip,
+      'v' => '1',
+      't' => 'pageview',
+      'tid' => account,
+      'cid' => cid,
+      'dp' => page,
+      'uip' => ip,
     }
-    log(ua, ip, cid, payload)
+
+    log(ua, ip, cid, payload.merge(req.params))
   end
 
   def generateUUID
